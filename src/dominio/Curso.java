@@ -53,6 +53,7 @@ public class Curso {
 		for (Alumno alumno : alumnos) {
 			if(alumno.getId().equals(id)) {
 				alumnos.remove(alumno);
+				aux=false;
 				bol=true;
 				break;
 			} else {
@@ -60,7 +61,7 @@ public class Curso {
 			}
 		}
 		
-		if(!aux) throw new AlumnoInexistenteExcepcion();
+		if(aux) throw new AlumnoInexistenteExcepcion();
 			
 		
 		return bol;

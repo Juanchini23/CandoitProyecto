@@ -84,7 +84,6 @@ public class PruebaMain {
 							
 							case 1:
 								matematica.agregarAlumno(alumno2);
-								System.out.println(matematica.toString());
 								break;
 								
 							case 2:
@@ -109,7 +108,6 @@ public class PruebaMain {
 								
 								try {
 									matematica.quitarAlumno(alumno.getId());
-									System.out.println(matematica.toString());
 								} catch (AlumnoInexistenteExcepcion e) {
 									System.out.println(e.getMessage());
 								}
