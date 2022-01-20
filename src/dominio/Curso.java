@@ -34,36 +34,43 @@ public class Curso {
 		return this.alumnos;
 	}
 	
+//	public Boolean quitarAlumno(Integer id) throws AlumnoInexistenteExcepcion {
+//		Boolean bol=false;
+//		Alumno aux=buscarAlumnoPorId(id);
+//		if(aux!=null) {
+//			alumnos.remove(aux);
+//			bol=true;
+//		} else {
+//			throw new AlumnoInexistenteExcepcion();
+//		}
+//		
+//		return bol;
+//	}
+	
 	public Boolean quitarAlumno(Integer id) throws AlumnoInexistenteExcepcion {
 		Boolean bol=false;
-		Alumno aux=buscarAlumnoPorId(id);
-		if(aux!=null) {
-			alumnos.remove(aux);
-			bol=true;
-		} else {
-			throw new AlumnoInexistenteExcepcion();
+		Boolean aux=false;
+		for (Alumno alumno : alumnos) {
+			if(alumno.getId().equals(id)) {
+				alumnos.remove(alumno);
+				bol=true;
+				break;
+			} else {
+				aux=true;
+			}
 		}
+		
+		if(!aux) throw new AlumnoInexistenteExcepcion();
+			
 		
 		return bol;
 	}
 	
-	
 	@Override
 	public String toString() {
-		return "Curso [id=" + id + ", materia=" + materia + "]";
+		return "Curso [id=" + id + ", materia=" + materia + ", alumnos=" + alumnos + "]";
 	}
 
-	public Alumno buscarAlumnoPorId(Integer id) {
-		
-		Alumno aux=null;
-		for (Alumno alumno : alumnos) {
-			if(alumno.getId().equals(id)) {
-				aux=alumno;
-				break;
-			}
-		}
-		
-		return aux;
-	}
+	
 	
 }
